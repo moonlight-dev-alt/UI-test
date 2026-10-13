@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f2">
+  <meta name="description" content="上传花朵、叶片或枝条照片，认识你的三角梅。">
+  <title>花见识 · 三角梅识别</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-flower" viewBox="0 0 48 48"><path d="M24 21c-8-3-10-10-6-14 4-4 10 0 8 9 3-8 10-10 13-6 3 5-2 10-10 11 8 0 12 6 9 10-4 5-11 2-13-6-1 8-7 12-11 8-4-4-1-10 7-12-8 2-14-1-12-6 2-6 10-6 15 0Z" fill="currentColor"/><circle cx="24" cy="23" r="3.2" fill="#f8d46b"/><path d="M23 27c0 7-2 12-4 16m5-8c4 0 8 2 11 5M19 37c-4-1-7 0-10 3" fill="none" stroke="#4c8656" stroke-width="2.3" stroke-linecap="round"/><path d="M20 37c-5-5-10-5-12-2 3 5 7 6 12 2Zm8 2c4-5 8-5 11-2-3 5-7 6-11 2Z" fill="#8baa79"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v4A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-image-up" viewBox="0 0 64 64"><rect x="5" y="7" width="47" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="19" r="4.2" fill="none" stroke="currentColor" stroke-width="3"/><path d="m9 40 12-12 9 8 8-8 9 9" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="46" r="12" fill="currentColor"/><path d="M47 51V41m0 0-4 4m4-4 4 4" fill="none" stroke="#10331f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4m-6.5-6.2A7 7 0 1 1 16.5 15c-.9.7-1.5 1.7-1.5 3H9c0-1.3-.6-2.3-1.5-3.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 1v2m9 9h2M1 12h2m15.4-6.4 1.4-1.4M4.2 4.2l1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7S5.5 10 5.5 14.3a6.5 6.5 0 0 0 13 0C18.5 10 12 2.7 12 2.7Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 15.5c.3 1.2 1.2 1.9 2.5 2.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-shears" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.2 7.8 12 12M8.2 16.2 20 4m-7 7-4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9m0 4C7 16 4 13 4 8c5 0 8 2 8 7Zm0-4c0-5 3-8 8-8 0 5-3 8-8 8Zm-5 9h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.5 11a8.5 8.5 0 1 1 2.2 6.3M3 5v6h6m3-5v6l4 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20.5 3.5C11 3 4 6 4 13a7 7 0 0 0 7 7c7 0 9.5-7 9.5-16.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 21c3-6 8-10 14-13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="header-inner page-width">
+      <a class="brand" href="#top" aria-label="花见识首页" data-ui="brand">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-flower"/></svg>
+        <span>花见识 · 三角梅识别</span>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="打开导航菜单" data-ui="menu-toggle"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primaryNav" aria-label="主导航">
+        <a class="nav-link is-current" href="#top" aria-current="page" data-ui="nav-link">首页</a>
+        <button class="nav-link" type="button" data-action="history" data-ui="nav-link">识别记录</button>
+        <a class="nav-link" href="#knowledge" data-ui="nav-link">三角梅知识</a>
+        <button class="nav-link" type="button" data-action="about" data-ui="nav-link">关于我们</button>
+      </nav>
+      <button class="history-button" type="button" data-action="history" data-ui="history-button">
+        <svg class="icon" aria-hidden="true"><use href="#i-history"/></svg><span>识别记录</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <img class="hero-botanical" src="assets/hero-botanical.png" alt="盛开的粉色三角梅枝条">
+      <div class="hero-inner page-width">
+        <div class="hero-copy">
+          <h1 id="heroTitle">上传一张照片，<br>认识你的<span>三角梅</span></h1>
+          <p>无论是花朵、叶片还是枝条，<br>都能帮你快速识别三角梅的品种。</p>
+        </div>
+        <div class="upload-panel" id="uploadPanel" aria-busy="false">
+          <div class="dropzone" id="dropzone" role="group" tabindex="0" aria-roledescription="图片上传区域" aria-label="点击选择或拖拽图片到此处" data-ui="upload-area">
+            <input class="file-input" id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" aria-label="选择三角梅照片">
+            <div class="upload-empty" id="uploadEmpty">
+              <svg class="upload-illustration" aria-hidden="true"><use href="#i-image-up"/></svg>
+              <p class="upload-prompt">点击上传 或 拖拽图片到此处</p>
+              <p class="upload-meta">支持 JPG、PNG、WEBP 格式，单张图片不超过 10MB</p>
+              <button class="button button-primary choose-button" id="chooseButton" type="button" data-ui="upload-button">
+                <svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>选择图片
+              </button>
+            </div>
+            <div class="upload-selected" id="uploadSelected" hidden>
+              <img id="selectedPreview" alt="待识别图片预览">
+              <div class="selected-copy"><strong id="selectedName">已选择照片</strong><span id="selectedMeta">准备就绪</span><span class="upload-progress" id="uploadProgress" hidden></span></div>
+              <button class="icon-button clear-button" id="clearButton" type="button" aria-label="移除图片" title="移除图片" data-ui="clear-button"><svg class="icon"><use href="#i-close"/></svg></button>
+              <button class="button button-primary identify-button" id="identifyButton" type="button" data-ui="identify-button">开始识别</button>
+            </div>
+          </div>
+          <p class="upload-error" id="uploadError" role="alert" hidden></p>
+        </div>
+      </div>
+      <div class="photo-tips" aria-label="拍摄小贴士">
+        <div class="tips-title"><svg class="icon" aria-hidden="true"><use href="#i-bulb"/></svg><strong>拍摄小贴士</strong></div>
+        <span class="tip-divider" aria-hidden="true"></span>
+        <span class="tip-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>尽量拍清楚花朵</span>
+        <span class="tip-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>叶片和枝条也要入镜</span>
+        <span class="tip-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>光线充足，避免模糊</span>
+      </div>
+    </section>
+
+    <div class="content page-width">
+      <section class="insights-grid" aria-label="识别结果与养护建议">
+        <article class="result-card surface-card" id="resultCard" tabindex="0" role="button" aria-label="打开三角梅识别详情" data-ui="result-card">
+          <img class="result-photo" id="resultPhoto" src="assets/featured-identified.png" alt="玫红色三角梅识别样例">
+          <div class="result-copy">
+            <div class="result-heading"><h2 id="resultName">同安红</h2><span class="species-tag">三角梅</span></div>
+            <div class="confidence-line"><svg class="icon" aria-hidden="true"><use href="#i-flower"/></svg><span>识别置信度</span><strong id="confidenceValue">96%</strong></div>
+            <div class="confidence-track" role="meter" aria-label="识别置信度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96"><span id="confidenceBar" style="width:96%"></span></div>
+            <h3>主要特征</h3>
+            <p class="feature-list" id="featureList"><span>玫红色苞片</span><i></i><span>白色小花</span><i></i><span>叶片较大</span><i></i><span>叶色深绿</span></p>
+            <span class="result-hint">点击查看识别详情</span>
+          </div>
+        </article>
+
+        <section class="care-card surface-card" id="knowledge" aria-labelledby="careTitle" data-ui="care-card">
+          <h2 class="section-card-title" id="careTitle"><svg class="icon" aria-hidden="true"><use href="#i-sprout"/></svg>养护建议</h2>
+          <div class="care-grid">
+            <button class="advice-item" type="button" data-advice="sun" data-ui="advice-card"><span class="advice-icon"><svg class="icon"><use href="#i-sun"/></svg></span><strong>光照</strong><span>每天至少 4-6 小时<br>充足阳光</span></button>
+            <button class="advice-item" type="button" data-advice="water" data-ui="advice-card"><span class="advice-icon"><svg class="icon"><use href="#i-drop"/></svg></span><strong>浇水</strong><span>见干见湿<br>避免积水</span></button>
+            <button class="advice-item" type="button" data-advice="prune" data-ui="advice-card"><span class="advice-icon"><svg class="icon"><use href="#i-shears"/></svg></span><strong>修剪</strong><span>花后及时修剪<br>促进新枝生长</span></button>
+            <button class="advice-item" type="button" data-advice="feed" data-ui="advice-card"><span class="advice-icon"><svg class="icon"><use href="#i-sprout"/></svg></span><strong>施肥</strong><span>生长期每 2-4 周<br>施一次薄肥</span></button>
+          </div>
+        </section>
+      </section>
+
+      <section class="varieties-section" id="varieties" aria-labelledby="varietiesTitle">
+        <div class="section-heading-row">
+          <h2 id="varietiesTitle"><svg class="icon" aria-hidden="true"><use href="#i-sprout"/></svg>热门三角梅品种</h2>
+          <button class="text-link" type="button" data-action="more-varieties" data-ui="more-button">查看更多品种 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="variety-grid" id="varietyGrid">
+          <button class="variety-card is-selected" type="button" data-variety="同安红" data-photo="assets/variety-magenta.png" data-features="玫红色苞片,白色小花,叶片较大,叶色深绿" data-ui="variety-card" aria-pressed="true">
+            <img src="assets/variety-magenta.png" alt="同安红三角梅">
+            <span class="variety-info"><strong>同安红</strong><small>经典品种 · 花色艳丽</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+          <button class="variety-card" type="button" data-variety="白雪公主" data-photo="assets/variety-white.png" data-features="纯白色苞片,小花洁白,株型紧凑,花期较长" data-ui="variety-card" aria-pressed="false">
+            <img src="assets/variety-white.png" alt="白雪公主三角梅">
+            <span class="variety-info"><strong>白雪公主</strong><small>清新优雅 · 花期长</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+          <button class="variety-card" type="button" data-variety="金心双色" data-photo="assets/variety-gold.png" data-features="金黄色苞片,色彩明亮,枝条舒展,喜充足日照" data-ui="variety-card" aria-pressed="false">
+            <img src="assets/variety-gold.png" alt="金心双色三角梅">
+            <span class="variety-info"><strong>金心双色</strong><small>多色混合 · 视觉性强</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+          <button class="variety-card" type="button" data-variety="紫花三角梅" data-photo="assets/variety-purple.png" data-features="紫色苞片,花量大,耐热耐晒,生长旺盛" data-ui="variety-card" aria-pressed="false">
+            <img src="assets/variety-purple.png" alt="紫花三角梅">
+            <span class="variety-info"><strong>紫花三角梅</strong><small>花色独特 · 耐热耐晒</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+          <button class="variety-card" type="button" data-variety="小叶紫" data-photo="assets/variety-coral.png" data-features="珊瑚红苞片,叶片较小,株型紧凑,适合盆栽" data-ui="variety-card" aria-pressed="false">
+            <img src="assets/variety-coral.png" alt="小叶紫三角梅">
+            <span class="variety-info"><strong>小叶紫</strong><small>叶片小巧 · 株型紧凑</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+          <button class="variety-card" type="button" data-variety="绿叶白花" data-photo="assets/variety-whitegreen.png" data-features="白色苞片,绿叶衬托,清新淡雅,适合庭院" data-ui="variety-card" aria-pressed="false">
+            <img src="assets/variety-whitegreen.png" alt="绿叶白花三角梅">
+            <span class="variety-info"><strong>绿叶白花</strong><small>清新淡雅 · 适合庭院</small></span><span class="variety-arrow"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </button>
+        </div>
+      </section>
+
+      <footer class="site-footer" id="about">
+        <a class="footer-brand" href="#top"><svg class="brand-mark"><use href="#i-flower"/></svg>花见识 · 认识每一朵三角梅</a>
+        <span>用一张照片，发现花园里的小惊喜。</span>
+      </footer>
+
+      <details class="state-lab">
+        <summary>组件交互状态预览</summary>
+        <div class="state-lab-content">
+          <p>选择一个组件，查看默认、鼠标移入、点击和禁用状态。页面中的导航、上传、养护建议和品种卡片也可直接操作。</p>
+          <label for="stateTarget">预览组件</label>
+          <select id="stateTarget">
+            <option value="brand">品牌入口</option><option value="nav-link">导航项</option><option value="history-button">识别记录按钮</option><option value="upload-area">图片上传区域</option><option value="upload-button">选择图片按钮</option><option value="result-card">识别结果卡片</option><option value="advice-card">养护建议卡片</option><option value="variety-card">品种卡片</option><option value="more-button">查看更多品种按钮</option>
+          </select>
+          <div class="state-buttons" role="group" aria-label="组件状态">
+            <button type="button" data-preview-state="default" class="is-current">默认</button><button type="button" data-preview-state="hover">鼠标移入</button><button type="button" data-preview-state="active">点击</button><button type="button" data-preview-state="disabled">禁用</button>
+          </div>
+          <span class="state-message" id="stateMessage" aria-live="polite">当前展示：默认状态</span>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-topline"><span class="dialog-kicker">花见识 · 三角梅图鉴</span><button class="icon-button dialog-close" type="button" aria-label="关闭" data-ui="dialog-close"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <h2 id="dialogTitle">三角梅识别详情</h2><div class="dialog-body" id="dialogBody"></div>
+    <div class="dialog-actions"><button class="button button-secondary" type="button" data-action="dialog-close" data-ui="dialog-action">知道了</button></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
